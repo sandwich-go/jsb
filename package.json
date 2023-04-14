@@ -1,6 +1,6 @@
 {
   "name": "@sandwich-go/jsb",
-  "version": "0.1.55",
+  "version": "0.1.56",
   "main": "index.js",
   "description": "JavaScript boost lib",
   "scripts": {
@@ -9,7 +9,7 @@
     "lib": "gulp build",
     "format": "eslint --fix dist/*.ts",
     "test": "npm run lib && jest",
-    "release": "yarn version --new-version patch && gulp build && npm publish --access public"
+    "release": "yarn version --new-version patch && gulp build && yarn publish"
   },
   "publishConfig": {
     "access": "public"
