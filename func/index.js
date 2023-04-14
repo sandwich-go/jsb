@@ -40,4 +40,8 @@ jsb.datetimePickerOptionsNext = require('./datetimePickerOptionsNext')
 
 jsb.assign = require('./assign')
 jsb.merge = require('./merge')
+
+jsb.clientWidth = require('./clientWidth')
+jsb.clientHeight = require('./clientHeight')
+
 module.exports = jsb
