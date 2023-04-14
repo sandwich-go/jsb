@@ -9,7 +9,6 @@
     "lib": "gulp build",
     "format": "eslint --fix dist/*.ts",
     "test": "npm run lib && jest",
-    "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
     "release": "yarn version --new-version patch && gulp build && npm publish --access public"
   },
   "publishConfig": {
@@ -25,7 +24,6 @@
     "eslint-plugin-vue": "^8.0.3",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.1.4",
-    "standard-version": "^9.5.0",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
