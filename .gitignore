@@ -4,7 +4,10 @@ node_modules
 /dist
 package-lock.json
 yarn.lock
+
 /*.js
+!/gulpfile.js
+
 /*.d.ts
 .idea
 # local env files

@@ -37,4 +37,7 @@ jsb.longestTextWidth = require('./longestTextWidth')
 
 jsb.datetimePickerOptionsPast = require('./datetimePickerOptionsPast')
 jsb.datetimePickerOptionsNext = require('./datetimePickerOptionsNext')
+
+jsb.assign = require('./assign')
+jsb.merge = require('./merge')
 module.exports = jsb
