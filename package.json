@@ -9,7 +9,7 @@
     "lib": "gulp build",
     "format": "eslint --fix dist/*.ts",
     "test": "npm run lib && jest",
-    "release": "yarn version --new-version patch && gulp build && yarn publish"
+    "release": "yarn version --new-version patch && gulp build && npm publish"
   },
   "publishConfig": {
     "access": "public"
