@@ -1,0 +1,64 @@
+div[class^="toast-wrapper"] {
+    position: absolute;
+    height: auto;
+}
+.toast-container {
+    font-size: 1rem;
+    text-align: center;
+    width: 300px;
+    z-index: 2147483647;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    -o-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+.toast-top-left {
+    top: 0px;
+    left: 0px;
+}
+.toast-top-right {
+    top: 0px;
+    right: 0px;
+}
+.toast-bottom-right {
+    right: 0px;
+    bottom: 0px;
+}
+.toast-bottom-left {
+    bottom: 0px;
+    left: 0px;
+}

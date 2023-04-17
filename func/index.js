@@ -44,4 +44,7 @@ jsb.merge = require('./merge')
 jsb.clientWidth = require('./clientWidth')
 jsb.clientHeight = require('./clientHeight')
 
+jsb.clipCopy = require('./clipCopy')
+jsb.objectAssignNX = require('./objectAssignNX')
+
 module.exports = jsb
