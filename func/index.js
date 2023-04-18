@@ -3,6 +3,7 @@
 // 核心
 let jsb = require('./ctor')
 jsb.each = require('./each')
+jsb.lastEach = require('./lastEach')
 jsb.pathGet = require('./pathGet')
 jsb.pathSet = require('./pathSet')
 jsb.isArray = require('./isArray')
@@ -46,6 +47,13 @@ jsb.clientHeight = require('./clientHeight')
 
 jsb.clipCopy = require('./clipCopy')
 jsb.objectAssignNX = require('./objectAssignNX')
+
+jsb.remove = require('./remove')
+jsb.clear = require('./clear')
 jsb.every = require('./every')
+
+jsb.delay = require('./delay')
+jsb.toNumber = require('./toNumber')
+jsb.slice = require('./slice')
 
 module.exports = jsb
