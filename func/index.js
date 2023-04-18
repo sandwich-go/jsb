@@ -46,5 +46,6 @@ jsb.clientHeight = require('./clientHeight')
 
 jsb.clipCopy = require('./clipCopy')
 jsb.objectAssignNX = require('./objectAssignNX')
+jsb.every = require('./every')
 
 module.exports = jsb
