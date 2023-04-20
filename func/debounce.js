@@ -3,10 +3,10 @@
  *
  * @param {Function} callback 回调
  * @param {Number} wait 多少秒毫
- * @param {Object} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}
+ * @param {Object|Boolean} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}
  * @return {Function}
  */
-function debounce (callback, wait, options) {
+function debounce (callback, wait, options=undefined) {
     let args, context;
     const opts = options || {};
     let runFlag = false;
