@@ -28,11 +28,11 @@ function handleAssign (destination, args, isClone) {
  * 
  *
  * const obj1 = {a: 0, b: {b1: 11}}
- * const obj2 = XEUtils.assign(obj1, {a: 11}, {c: 33})
+ * const obj2 = assign(obj1, {a: 11}, {c: 33})
  * // {a: 11, b: {b1: 11}, c: 33}
  *
  * const obj3 = {a: 0, b: {b1: 11}}
- * const obj4 = XEUtils.assign(obj1, {a: 11, b: {b2: 22}})
+ * const obj4 = assign(obj1, {a: 11, b: {b2: 22}})
  * // {a: 11, b: {b2: 22}}
  *
  */

@@ -55,5 +55,9 @@ jsb.every = require('./every')
 jsb.delay = require('./delay')
 jsb.toNumber = require('./toNumber')
 jsb.slice = require('./slice')
+jsb.find = require('./find')
 
+jsb.element = require('./element')
+
+jsb.debounce = require('./debounce')
 module.exports = jsb

@@ -21,11 +21,11 @@ function handleMerge (target, source) {
  *
  *
  * const obj1 = [{a: 11}, {b: 22}]
- * const obj2 = XEUtils.merge(obj1, [{c: 33}, {d: 44}])
+ * const obj2 = merge(obj1, [{c: 33}, {d: 44}])
  * // [{a: 11, c: 33}, {b: 22, d: 44}]
  *
  * const obj3 = {a: 0, b: {b1: 11}, c: {c1: {d: 44}}}
- * const obj4 = XEUtils.merge(obj1, {a: 11, b: {b2: 22}, c: {f1: 55}})
+ * const obj4 = merge(obj1, {a: 11, b: {b2: 22}, c: {f1: 55}})
  * // {a: 11, b: {b1: 11, b2: 22}, c: {c1: {d: 44}, f1: 55}}
  *
  */

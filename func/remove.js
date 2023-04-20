@@ -23,7 +23,7 @@ function pluckProperty (name) {
  *
  *
  * let list1 = [11, 22, 33, 44]
- * XEUtils.remove(list1, 2) // list1 = [11, 22, 44]
+ * remove(list1, 2) // list1 = [11, 22, 44]
  * let list2 = [11, 22, 33, 44]
  * remove(list2, item => item === 22) // list2 = [11, 33, 44]
  *
