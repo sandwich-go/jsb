@@ -60,4 +60,6 @@ jsb.find = require('./find')
 jsb.element = require('./element')
 
 jsb.debounce = require('./debounce')
+
+jsb.includes = require('./includes')
 module.exports = jsb
