@@ -43,8 +43,8 @@ function tinyDate(str, custom) {
 
 
 // 返回当前时间并按指定的方案格式化
-const dateTime = function (date=undefined,format=undefined,custom=undefined) {
-    return tinyDate(format||cc.dateTimeFormat,custom)(date || new Date())
+function dateTime(date=undefined,format=undefined,custom=undefined) {
+    return (tinyDate(format||cc.dateTimeFormat,custom))(date || new Date())
 }
 
 module.exports = dateTime

@@ -16,7 +16,7 @@ let cc = {
             doneFunc && doneFunc()
         }
     },
-    dateTimeFormat:'YYYY-MM-DD HH:mm:ss'
+    dateTimeFormat:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}'
 }
 
 cc.toastInfo = function (title, {body, id, timeout, config} = {}) {
