@@ -15,7 +15,8 @@ let cc = {
             const doneFunc = pathGet(config, 'doneFunc')
             doneFunc && doneFunc()
         }
-    }
+    },
+    dateTimeFormat:'YYYY-MM-DD HH:mm:ss'
 }
 
 cc.toastInfo = function (title, {body, id, timeout, config} = {}) {

@@ -62,4 +62,8 @@ jsb.element = require('./element')
 jsb.debounce = require('./debounce')
 
 jsb.includes = require('./includes')
+
+jsb.cc = require('./cc')
+jsb.now = require('./now')
+
 module.exports = jsb

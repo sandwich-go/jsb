@@ -27,7 +27,7 @@ jsb.ccAssign =function (options) {
     return Object.assign(ccConfig, options)
 }
 
-jsb.cc = function (fieldPath=undefined,defaultVal=undefined){
+jsb.ccPath = function (fieldPath=undefined,defaultVal=undefined){
     if(!fieldPath){
         return ccConfig
     }
