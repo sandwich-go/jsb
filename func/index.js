@@ -65,5 +65,7 @@ jsb.includes = require('./includes')
 
 jsb.cc = require('./cc')
 jsb.now = require('./now')
+jsb.dateTime = require('./dateTime')
+
 
 module.exports = jsb
