@@ -6,6 +6,7 @@ const each = require('./each');
 const isFunction = require('./isFunction');
 const ccConfig = require("./cc");
 const pathGet = require("./pathGet");
+const xid = require("./xid");
 
 let jsb = function () {}
 
@@ -22,6 +23,7 @@ function mixin () {
 }
 
 jsb.VERSION = '@VERSION'
+jsb.INSTANCE_XID = xid()
 jsb.mixin = mixin
 jsb.ccAssign =function (options) {
     return Object.assign(ccConfig, options)
