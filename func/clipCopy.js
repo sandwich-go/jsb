@@ -1,5 +1,6 @@
 const Clipboard  = require('clipboard')
 const cc = require("./cc");
+const eqNull = require("./eqNull");
 
 function clipboardSuccess(name) {
     let msg = "已拷贝到剪贴板"
@@ -18,8 +19,12 @@ function clipboardError(name) {
 }
 
 function clipCopy(text, event, name = "") {
+    const textToCopy = text || ''
+    if(eqNull(textToCopy) || text===''){
+        return
+    }
     const clipboard = new Clipboard(event.target, {
-        text: () => text
+        text: () => textToCopy
     })
     clipboard.on('success', () => {
         clipboardSuccess(name)

@@ -46,6 +46,7 @@
     "not dead"
   ],
   "dependencies": {
+    "@sandwich-go/jsb": "0.1.100",
     "buffer": "^6.0.3",
     "clipboard": "^2.0.11",
     "moment": "^2.29.4",

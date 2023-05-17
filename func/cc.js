@@ -33,10 +33,12 @@ defaultCC.toastError = function (title, {body, id, timeout, config} = {}) {
     defaultCC.toast("error", title, {body, id, timeout, config})
 }
 
-if(!window.jsb_cc) {
-    window.jsb_cc = defaultCC
+let cc = defaultCC
+if(typeof window !== 'undefined') {
+    if(!window.jsb_cc){
+        window.jsb_cc = defaultCC
+    }
+    cc = window.jsb_cc
 }
-
-let cc = window.jsb_cc
 
 module.exports = cc
