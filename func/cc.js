@@ -17,19 +17,24 @@ const defaultCC = {
             doneFunc && doneFunc()
         }
     },
-    dateTimeFormat:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}'
+    dateTimeFormat:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
+    aimViewPassword:function (){return true},
 }
 
 defaultCC.toastInfo = function (title, {body, id, timeout, config} = {}) {
+    timeout = timeout || 3000
     defaultCC.toast("info", title, {body, id, timeout, config})
 }
 defaultCC.toastSuccess = function (title, {body, id, timeout, config} = {}) {
+    timeout = timeout || 3000
     defaultCC.toast("success", title, {body, id, timeout, config})
 }
 defaultCC.toastWarning = function (title, {body, id, timeout, config} = {}) {
+    timeout = timeout || 6000
     defaultCC.toast("warning", title, {body, id, timeout, config})
 }
 defaultCC.toastError = function (title, {body, id, timeout, config} = {}) {
+    timeout = timeout || 9000
     defaultCC.toast("error", title, {body, id, timeout, config})
 }
 
