@@ -67,5 +67,7 @@ jsb.cc = require('./cc')
 jsb.now = require('./now')
 jsb.dateTime = require('./dateTime')
 
+jsb.size = require('./size')
+
 
 module.exports = jsb
