@@ -18,7 +18,13 @@ const defaultCC = {
         }
     },
     dateTimeFormat:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
+
     aimViewPassword:function (){return true},
+    aimFormCommentStyle:{
+        'font-style':'italic',
+        'color':'dodgerblue',
+        'font-size':'12px'
+    }
 }
 
 defaultCC.toastInfo = function (title, {body, id, timeout, config} = {}) {
