@@ -26,6 +26,7 @@ const defaultCC = {
         'font-size':'12px'
     }
 }
+defaultCC.confirmDelete = defaultCC.confirm
 
 defaultCC.toastInfo = function (title, {body, id, timeout, config} = {}) {
     timeout = timeout || 3000
