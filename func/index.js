@@ -69,5 +69,8 @@ jsb.dateTime = require('./dateTime')
 
 jsb.size = require('./size')
 
+jsb.omit = require('./omit')
+jsb.pick = require('./pick')
+
 
 module.exports = jsb
