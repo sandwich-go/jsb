@@ -10,7 +10,7 @@ const each = require('./each');
  * @param {Object} context 上下文
  * @return {Object}
  */
-function filter (obj, iterate, context) {
+function filter (obj, iterate, context=undefined) {
     const result = [];
     if (obj && iterate) {
         if (obj.filter) {
