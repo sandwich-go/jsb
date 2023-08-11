@@ -10,6 +10,7 @@ jsb.isArray = require('./isArray')
 
 jsb.isVisitable = require('./isVisitable')
 jsb.isObjectOrMap = require('./isObjectOrMap')
+jsb.map = require('./map')
 
 jsb.isString = require('./isString')
 jsb.isFunction = require('./isFunction')
@@ -71,6 +72,8 @@ jsb.size = require('./size')
 
 jsb.omit = require('./omit')
 jsb.pick = require('./pick')
+
+jsb.filter =  require('./filter')
 
 
 module.exports = jsb
