@@ -22,7 +22,7 @@ const defaultCC = {
     aimViewPassword:function (){return true},
     aimFormCommentStyle:{
         'font-style':'italic',
-        'color':'dodgerblue',
+        'color':'#707070',
         'font-size':'12px'
     }
 }
