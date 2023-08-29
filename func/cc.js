@@ -3,6 +3,8 @@
 const toastLib = require('./toast')
 const pathGet = require("./pathGet");
 
+const Emitter = require('./emitter.js');
+
 const defaultCC = {
     // view中插入如下div便于获取view宽高
     // <div id="measure-view-hw" style="position: fixed; height: 100vh;width: 100vw"></div>
@@ -24,7 +26,8 @@ const defaultCC = {
         'font-style':'italic',
         'color':'#707070',
         'font-size':'12px'
-    }
+    },
+    emitter:new Emitter()
 }
 defaultCC.confirmDelete = defaultCC.confirm
 
