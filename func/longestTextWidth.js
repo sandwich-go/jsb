@@ -1,10 +1,11 @@
 const textWidth = require("./textWidth");
 const isEmpty = require("./isEmpty");
-const cc = require("./cc");
+const {textBaseWidth} = require("../cc");
 
+const baseWithWhenZero = textBaseWidth
 function longestTextWidth(nameList) {
     if(isEmpty(nameList) || nameList.length === 0){
-        return cc.textBaseWidth
+        return baseWithWhenZero
     }
     let longest = textWidth(nameList.sort(
         function (a, b) {
@@ -14,7 +15,7 @@ function longestTextWidth(nameList) {
     if (!longest){
         longest = 0
     }
-    return  longest + cc.textBaseWidth
+    return  longest + baseWithWhenZero
 }
 
 module.exports = longestTextWidth
