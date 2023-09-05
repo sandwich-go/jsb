@@ -27,7 +27,8 @@ const defaultCC = {
         'color':'#707070',
         'font-size':'12px'
     },
-    emitter:new Emitter()
+    emitter:new Emitter(),
+    textBaseWidth :30,
 }
 defaultCC.confirmDelete = defaultCC.confirm
 
