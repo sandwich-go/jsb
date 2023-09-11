@@ -1,6 +1,6 @@
 const textWidth = require("./textWidth");
 const isEmpty = require("./isEmpty");
-const cc = require("../cc");
+const cc = require("./cc");
 
 function longestTextWidth(nameList) {
     const baseWithWhenZero = cc.textBaseWidth || 30
