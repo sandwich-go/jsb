@@ -1,4 +1,4 @@
-var helperCreateGetObjects = require('./helperCreateGetObjects')
+const helperCreateGetObjects = require('./helperCreateGetObjects')
 
 /**
  * 获取对象所有属性

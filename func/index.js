@@ -72,6 +72,7 @@ jsb.size = require('./size')
 
 jsb.omit = require('./omit')
 jsb.pick = require('./pick')
+jsb.keys = require('./keys')
 
 jsb.filter =  require('./filter')
 
