@@ -18,6 +18,8 @@ jsb.isNumber = require('./isNumber')
 jsb.isBoolean = require('./isBoolean')
 jsb.isEmpty = require('./isEmpty')
 
+jsb.waitFor = require('./waitFor')
+
 
 jsb.xid = require('./xid')
 jsb.findIndexOf = require('./findIndexOf')
