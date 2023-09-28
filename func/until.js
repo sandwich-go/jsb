@@ -1,4 +1,4 @@
-function waitFor(conditionFunction) {
+function until(conditionFunction) {
     const poll = resolve => {
         if(conditionFunction()) resolve();
         else setTimeout(_ => poll(resolve), 400);
@@ -7,4 +7,4 @@ function waitFor(conditionFunction) {
     return new Promise(poll);
 }
 
-module.exports = waitFor
+module.exports = until

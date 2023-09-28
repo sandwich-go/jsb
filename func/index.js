@@ -18,7 +18,7 @@ jsb.isNumber = require('./isNumber')
 jsb.isBoolean = require('./isBoolean')
 jsb.isEmpty = require('./isEmpty')
 
-jsb.waitFor = require('./waitFor')
+jsb.until = require('./until')
 
 
 jsb.xid = require('./xid')
