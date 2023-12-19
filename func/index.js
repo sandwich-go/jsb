@@ -36,6 +36,8 @@ jsb.randomModIsZero = require('./randomModIsZero')
 jsb.clone = require('./clone')
 
 jsb.textWidth = require('./textWidth')
+jsb.htmlWidth = require('./htmlWidth')
+
 jsb.longestTextWidth = require('./longestTextWidth')
 
 
