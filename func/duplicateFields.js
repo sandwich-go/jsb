@@ -9,16 +9,17 @@ const find = require("./find");
  * @param {Object} thisArg 上下文
  * @return {array} 重复的字段值，如为空则返回空数组
  */
-function duplicateFields (arr, fieldPath, thisArg= undefined) {
-    const keys = new Set();
-    const duplicateFieldVal = []
+function duplicateFields (arr, fieldPath) {
+    const keys = new Set()
+    const duplicateFieldVal =  new Set()
     for (let i = 0; i < arr.length; i++) {
-        const fieldVal = pathGet(arr[i],fieldPath);
-        if (keys.has(fieldVal) && !find(duplicateFieldVal,v=>v === fieldVal)) {
-            duplicateFieldVal.push(fieldVal)
+        const fieldVal = pathGet(arr[i],fieldPath)
+        if (keys.has(fieldVal) && !duplicateFieldVal.has(fieldVal)) {
+            duplicateFieldVal.add(fieldVal)
+            continue
         }
+        keys.add(fieldVal)
     }
-    return duplicateFieldVal;
+    return  Array.from(duplicateFieldVal)
 }
-
 module.exports = duplicateFields
