@@ -80,5 +80,7 @@ jsb.keys = require('./keys')
 
 jsb.filter =  require('./filter')
 
+jsb.duplicateFields = require('./duplicateFields')
+
 
 module.exports = jsb
