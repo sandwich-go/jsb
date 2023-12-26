@@ -39,6 +39,7 @@ jsb.textWidth = require('./textWidth')
 jsb.htmlWidth = require('./htmlWidth')
 
 jsb.longestTextWidth = require('./longestTextWidth')
+jsb.longestHTMLWidth = require('./longestHTMLWidth')
 
 
 jsb.datetimePickerOptionsPast = require('./datetimePickerOptionsPast')
