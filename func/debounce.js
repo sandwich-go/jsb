@@ -3,42 +3,42 @@
  *
  * @param {Function} callback 回调
  * @param {Number} wait 多少秒毫
- * @param {Object} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}
+ * @param {Object|Boolean} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}
  * @return {Function}
  */
-function debounce (callback, wait, options) {
-    var args, context
-    var opts = options || {}
-    var runFlag = false
-    var isDestroy = false
-    var timeout = 0
-    var isLeading = typeof options === 'boolean'
-    var optLeading = 'leading' in opts ? opts.leading : isLeading
-    var optTrailing = 'trailing' in opts ? opts.trailing : !isLeading
-    var runFn = function () {
+function debounce (callback, wait, options=false) {
+    let args, context;
+    const opts = options || {};
+    let runFlag = false;
+    const isDestroy = false;
+    let timeout = 0;
+    const isLeading = typeof options === 'boolean';
+    const optLeading = 'leading' in opts ? opts.leading : isLeading;
+    const optTrailing = 'trailing' in opts ? opts.trailing : !isLeading;
+    const runFn = function () {
         if (!isDestroy) {
             runFlag = true
             timeout = 0
             callback.apply(context, args)
         }
-    }
-    var endFn = function () {
+    };
+    const endFn = function () {
         if (optLeading === true) {
             timeout = 0
         }
         if (!isDestroy && !runFlag && optTrailing === true) {
             runFn()
         }
-    }
-    var cancelFn = function () {
-        var rest = timeout !== 0
+    };
+    const cancelFn = function () {
+        const rest = timeout !== 0;
         clearTimeout(timeout)
         args = null
         context = null
         timeout = 0
         return rest
-    }
-    var debounced = function () {
+    };
+    const debounced = function () {
         runFlag = false
         args = arguments
         context = this
@@ -50,7 +50,7 @@ function debounce (callback, wait, options) {
             clearTimeout(timeout)
         }
         timeout = setTimeout(endFn, wait)
-    }
+    };
     debounced.cancel = cancelFn
     return debounced
 }
