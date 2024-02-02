@@ -1,6 +1,7 @@
 const isVisitable = require("./isVisitable")
 const isFunction = require("./isFunction");
 const isNull = require("./isNull");
+const hasOwnProp = require("./hasOwnProp");
 
 // pathGet 根据给定字段路径获取值，只有当值为null或者undefined才使用默认值
 // key
@@ -24,7 +25,7 @@ function pathGet(obj,key,defaultVal) {
     }
     // https://stackabuse.com/how-to-check-if-key-exists-in-javascript-object-array/
     // eslint-disable-next-line no-prototype-builtins
-    if(isVisitable(obj) && obj.hasOwnProperty(key)) {
+    if(isVisitable(obj) && hasOwnProp(obj,key)) {
         return isNull(obj[key])?defaultVal:obj[key]
     }
     let pos = String(key).lastIndexOf(".")
@@ -33,7 +34,7 @@ function pathGet(obj,key,defaultVal) {
         key = key.substr(pos+1)
     }
     // eslint-disable-next-line no-prototype-builtins
-    if(isVisitable(obj) && obj.hasOwnProperty(key)){
+    if(isVisitable(obj) && hasOwnProp(obj,key)){
         return isNull(obj[key])?defaultVal:obj[key]
     }
     return defaultVal

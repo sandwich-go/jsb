@@ -7,7 +7,7 @@
  */
 function hasOwnProp (obj, key) {
     // eslint-disable-next-line no-prototype-builtins
-    return obj && obj.hasOwnProperty ? obj.hasOwnProperty(key) : false
+    return obj && obj.hasOwnProperty ? obj.hasOwnProperty(key) : key in obj
 }
 
 module.exports = hasOwnProp
