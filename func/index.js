@@ -9,6 +9,7 @@ jsb.pathSet = require('./pathSet')
 jsb.isArray = require('./isArray')
 
 jsb.arrayToTree = require('./arrayToTree')
+jsb.treeToArray = require('./treeToArray')
 jsb.findTree = require('./findTree')
 jsb.eachTree = require('./eachTree')
 jsb.filterTree = require('./filterTree')

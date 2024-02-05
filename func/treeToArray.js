@@ -26,11 +26,11 @@ function unTreeList (result, array, opts) {
  * 将一个树结构转成数组列表
  *
  * @param {Array} array 数组
- * @param {Object} options { children: 'children', data: 'data', clear: false }
+ * @param {Object} options { children: 'children', data: 'data', clear: false}
  * @return {Array}
  */
-function toTreeArray (array, options) {
+function treeToArray (array, options) {
     return unTreeList([], array, assign({}, cc.treeOptions, options))
 }
 
-module.exports = toTreeArray
+module.exports = treeToArray

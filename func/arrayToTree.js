@@ -15,7 +15,7 @@ const eachTree = require("./eachTree");
  * @param {Object} options {removeNoChildren:false,parentKey: 'parentId', key: 'id', children: 'children',path: 'path', mapChildren: 'children', data: 'data'}
  * @return {Array}
  */
-function toArrayTree (array, options) {
+function arrayToTree (array, options) {
     const opts = assign({}, cc.treeOptions, options);
     const optKey = opts.key;
     const optParentKey = opts.parentKey;
@@ -76,4 +76,4 @@ function toArrayTree (array, options) {
     return result
 }
 
-module.exports = toArrayTree
+module.exports = arrayToTree
