@@ -8,6 +8,8 @@ jsb.pathGet = require('./pathGet')
 jsb.pathSet = require('./pathSet')
 jsb.isArray = require('./isArray')
 
+jsb.arrayToTree = require('./arrayToTree')
+
 jsb.isVisitable = require('./isVisitable')
 jsb.isObjectOrMap = require('./isObjectOrMap')
 jsb.map = require('./map')

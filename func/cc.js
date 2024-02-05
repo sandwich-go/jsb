@@ -29,7 +29,13 @@ const defaultCC = {
     },
     emitter:new Emitter(),
     textBaseWidth :30,
+    treeOptions: {
+        parentKey: 'parentId',
+        key: 'id',
+        children: 'children'
+    },
 }
+
 defaultCC.confirmDelete = defaultCC.confirm
 
 defaultCC.toastInfo = function (title, {body, id, timeout, config} = {}) {
