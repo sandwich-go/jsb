@@ -7,7 +7,7 @@ function findTreeItem (parent, obj, iterate, context, path, node, parseChildren,
             item = obj[index]
             paths = path.concat(['' + index])
             nodes = node.concat([item])
-            if (iterate.call(context, item, index, obj, paths, parent, nodes)) {
+            if (iterate.call(context, item,{index, obj, paths, parent, nodes})) {
                 return { index: index, item: item, path: paths, items: obj, parent: parent, nodes: nodes }
             }
             if (parseChildren && item) {
