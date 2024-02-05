@@ -9,6 +9,9 @@ jsb.pathSet = require('./pathSet')
 jsb.isArray = require('./isArray')
 
 jsb.arrayToTree = require('./arrayToTree')
+jsb.findTree = require('./findTree')
+jsb.eachTree = require('./eachTree')
+jsb.filterTree = require('./filterTree')
 
 jsb.isVisitable = require('./isVisitable')
 jsb.isObjectOrMap = require('./isObjectOrMap')

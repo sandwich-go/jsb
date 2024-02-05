@@ -5,30 +5,25 @@ const each = require('./each');
 const remove = require('./remove');
 const assign = require('./assign');
 const cc = require("./cc");
+const eachTree = require("./eachTree");
 
-function strictTree (array, optChildren) {
-    each(array, function (item) {
-        if (item[optChildren] && !item[optChildren].length) {
-            remove(item, optChildren)
-        }
-    })
-}
 
 /**
  * 将一个带层级的数据列表转成树结构
  *
  * @param {Array} array 数组
- * @param {Object} options {strict: false, parentKey: 'parentId', key: 'id', children: 'children', mapChildren: 'children', data: 'data'}
+ * @param {Object} options {removeNoChildren:false,parentKey: 'parentId', key: 'id', children: 'children',path: 'path', mapChildren: 'children', data: 'data'}
  * @return {Array}
  */
 function toArrayTree (array, options) {
     const opts = assign({}, cc.treeOptions, options);
-    const optStrict = opts.strict;
     const optKey = opts.key;
     const optParentKey = opts.parentKey;
     const optChildren = opts.children;
+    const optRemoveChildrenWhenEmpty = opts.removeChildrenWhenEmpty;
     const optMapChildren = opts.mapChildren;
     const optSortKey = opts.sortKey;
+    const optItem2TreeNode = opts['itemToTreeNode'];
     const optReverse = opts.reverse;
     const optData = opts.data;
     const result = [];
@@ -50,12 +45,11 @@ function toArrayTree (array, options) {
 
     each(array, function (item) {
         id = item[optKey]
-
         if (optData) {
             treeData = {}
-            treeData[optData] = item
+            treeData[optData] = optItem2TreeNode?optItem2TreeNode(item):item
         } else {
-            treeData = item
+            treeData = optItem2TreeNode?optItem2TreeNode(item):item
         }
 
         parentId = item[optParentKey]
@@ -68,18 +62,17 @@ function toArrayTree (array, options) {
         if (optMapChildren) {
             treeData[optMapChildren] = treeMap[id]
         }
-
-        if (!optStrict || (optStrict && eqNull(parentId))) {
-            if (!idsMap[parentId]) {
-                result.push(treeData)
-            }
+        if (!idsMap[parentId]) {
+            result.push(treeData)
         }
     })
-
-    if (optStrict) {
-        strictTree(array, optChildren)
+    if(optRemoveChildrenWhenEmpty){
+        eachTree(result,item=>{
+            if(item[optChildren] && !item[optChildren].length){
+                delete item[optChildren]
+            }
+        })
     }
-
     return result
 }
 
