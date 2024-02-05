@@ -1,6 +1,6 @@
 {
   "name": "@sandwich-go/jsb",
-  "version": "0.1.137",
+  "version": "0.1.138",
   "main": "index.js",
   "description": "JavaScript boost lib",
   "scripts": {
