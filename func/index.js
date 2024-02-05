@@ -77,6 +77,7 @@ jsb.includes = require('./includes')
 
 jsb.cc = require('./cc')
 jsb.now = require('./now')
+jsb.timestamp = require('./timestamp')
 jsb.dateTime = require('./dateTime')
 
 jsb.size = require('./size')
