@@ -1,11 +1,14 @@
 const cc = require("./cc");
 const each = require('./each');
 const assign = require('./assign');
+const orderBy = require("./orderBy");
+const clone = require("./clone");
 
 function unTreeList (result, array, opts) {
     const optChildren = opts.children;
     const optData = opts.data;
     const optClear = opts.clear;
+    const optSortKey = opts.sortKey;
     each(array, function (item) {
         const children = item[optChildren];
         if (optData) {
@@ -19,7 +22,10 @@ function unTreeList (result, array, opts) {
             delete item[optChildren]
         }
     })
-    return result
+    if(optSortKey){
+        return orderBy(array, optSortKey)
+    }
+    return array
 }
 
 /**
