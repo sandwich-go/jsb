@@ -35,7 +35,7 @@ function treeToArray (array, options) {
     const opts = assign({}, cc.treeOptions, options)
     const optSortKey = opts.sortKey;
     const result = unTreeList([], array,opts)
-    return optSortKey?orderBy(result,optSortKey,optSortKey):result
+    return optSortKey?orderBy(result,optSortKey):result
 }
 
 module.exports = treeToArray
