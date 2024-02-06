@@ -89,6 +89,6 @@ jsb.keys = require('./keys')
 jsb.filter =  require('./filter')
 
 jsb.duplicateFields = require('./duplicateFields')
-
+jsb.extractTextFromHTML = require('./extractTextFromHTML')
 
 module.exports = jsb
