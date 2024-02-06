@@ -9,4 +9,4 @@ function  extractTextFromHTML(html, param = {}) {
     return new DOMParser().parseFromString(html, 'text/html').body.innerText;
 }
 
-module.eachTree = extractTextFromHTML
+module.exports = extractTextFromHTML
