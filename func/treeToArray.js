@@ -2,7 +2,6 @@ const cc = require("./cc");
 const each = require('./each');
 const assign = require('./assign');
 const orderBy = require("./orderBy");
-const {re} = require("@babel/core/lib/vendor/import-meta-resolve");
 
 function unTreeList (result, array, opts) {
     const optChildren = opts.children;
