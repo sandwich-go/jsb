@@ -4,7 +4,7 @@ const now = require('./now');
  * @returns Number
  */
 const timestamp = function () {
-    return now()/1000
+    return Number(now()/1000)
 };
 
 module.exports = timestamp
