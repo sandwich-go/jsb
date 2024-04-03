@@ -17,6 +17,9 @@ const defaultCC = {
         if(resp){
             const doneFunc = pathGet(config, 'doneFunc')
             doneFunc && doneFunc()
+        }else{
+            const cancelFunc = pathGet(config, 'cancelFunc')
+            cancelFunc && cancelFunc()
         }
     },
     dateTimeFormat:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
