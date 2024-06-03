@@ -89,7 +89,8 @@ function buildMultiOrders (name, confs, compares) {
         if (v1 === v2) {
             return compares ? compares(item1, item2) : 0
         }
-        return confs.order === ORDER_PROP_DESC ? handleSort(v2, v1) : handleSort(v1, v2)
+        const orderFunc  = confs['orderFunc'] || handleSort
+        return confs.order === ORDER_PROP_DESC ? orderFunc(v2, v1) : orderFunc(v1, v2)
     }
 }
 
