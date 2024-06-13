@@ -6,6 +6,8 @@ const remove = require('./remove');
 const assign = require('./assign');
 const cc = require("./cc");
 const eachTree = require("./eachTree");
+const pathGet = require("../pathGet");
+const pathSet = require("../pathSet");
 
 
 /**
@@ -52,12 +54,12 @@ function arrayToTree (array, options) {
             treeData = optItem2TreeNode?optItem2TreeNode(item):item
         }
 
-        parentId = item[optParentKey]
+        parentId = pathGet(item,optParentKey)
         treeMap[id] = treeMap[id] || []
         treeMap[parentId] = treeMap[parentId] || []
         treeMap[parentId].push(treeData)
         treeData[optKey] = id
-        treeData[optParentKey] = parentId
+        treeData = pathSet(treeData,optParentKey,parentId)
         treeData[optChildren] = treeMap[id]
         if (optMapChildren) {
             treeData[optMapChildren] = treeMap[id]
