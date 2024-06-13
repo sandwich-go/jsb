@@ -6,8 +6,8 @@ const remove = require('./remove');
 const assign = require('./assign');
 const cc = require("./cc");
 const eachTree = require("./eachTree");
-const pathGet = require("../pathGet");
-const pathSet = require("../pathSet");
+const pathGet = require("./pathGet");
+const pathSet = require("./pathSet");
 
 
 /**
