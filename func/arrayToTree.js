@@ -59,7 +59,7 @@ function arrayToTree (array, options) {
         treeMap[parentId] = treeMap[parentId] || []
         treeMap[parentId].push(treeData)
         treeData[optKey] = id
-        treeData = pathSet(treeData,optParentKey,parentId)
+        pathSet(treeData,optParentKey,parentId)
         treeData[optChildren] = treeMap[id]
         if (optMapChildren) {
             treeData[optMapChildren] = treeMap[id]
