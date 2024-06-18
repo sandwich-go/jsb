@@ -17,4 +17,4 @@ function walk (obj, iterate, thisArg= undefined) {
     return obj
 }
 
-module.exports = each
+module.exports = walk
