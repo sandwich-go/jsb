@@ -3,6 +3,7 @@
 // 核心
 let jsb = require('./ctor')
 jsb.each = require('./each')
+jsb.walk = require('./walk')
 jsb.lastEach = require('./lastEach')
 jsb.pathGet = require('./pathGet')
 jsb.pathSet = require('./pathSet')
