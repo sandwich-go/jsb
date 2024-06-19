@@ -1,5 +1,4 @@
 const isBoolean = require("./isBoolean");
-const {re} = require("@babel/core/lib/vendor/import-meta-resolve");
 
 function arrayEach(list, iterate,stopWhenNotTrue=false,context=undefined) {
     if (list) {
