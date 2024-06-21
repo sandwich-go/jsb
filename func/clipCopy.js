@@ -2,6 +2,7 @@ const Clipboard  = require('clipboard')
 const cc = require("./cc");
 const eqNull = require("./eqNull");
 const isString = require("./isString");
+const pathGet = require("./pathGet");
 
 function clipboardSuccess(name) {
     let msg = "已拷贝到剪贴板"
@@ -19,16 +20,22 @@ function clipboardError(name) {
     cc.toastError(msg, {timeout: 1000})
 }
 
-function clipCopy(text, event, name = "") {
-    let textToCopy = text || ''
-    if(!isString(textToCopy)){
-        textToCopy = JSON.stringify(textToCopy)
+function clipCopy(incoming, event, name = "") {
+    let toCopy = incoming || ''
+    if(!isString(toCopy)){
+        toCopy = pathGet(toCopy,'_text_copy_')
+        if(toCopy && !isString(toCopy)){
+            toCopy = JSON.stringify(toCopy)
+        }
+        if(!toCopy){
+            toCopy = JSON.stringify(incoming)
+        }
     }
-    if(eqNull(textToCopy) || text===''){
+    if(eqNull(toCopy) || text===''){
         return
     }
     const clipboard = new Clipboard(event.target, {
-        text: () => textToCopy
+        text: () => toCopy
     })
     clipboard.on('success', () => {
         clipboardSuccess(name)
