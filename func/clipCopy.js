@@ -31,7 +31,7 @@ function clipCopy(incoming, event, name = "") {
             toCopy = JSON.stringify(incoming)
         }
     }
-    if(eqNull(toCopy) || text===''){
+    if(eqNull(toCopy) || toCopy===''){
         return
     }
     const clipboard = new Clipboard(event.target, {
