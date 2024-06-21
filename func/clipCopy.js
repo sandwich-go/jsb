@@ -1,6 +1,7 @@
 const Clipboard  = require('clipboard')
 const cc = require("./cc");
 const eqNull = require("./eqNull");
+const isString = require("./isString");
 
 function clipboardSuccess(name) {
     let msg = "已拷贝到剪贴板"
@@ -19,7 +20,10 @@ function clipboardError(name) {
 }
 
 function clipCopy(text, event, name = "") {
-    const textToCopy = text || ''
+    let textToCopy = text || ''
+    if(!isString(textToCopy)){
+        textToCopy = JSON.stringify(textToCopy)
+    }
     if(eqNull(textToCopy) || text===''){
         return
     }
