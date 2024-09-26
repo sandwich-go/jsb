@@ -90,8 +90,18 @@ function buildMultiOrders (name, confs, compares) {
             return compares ? compares(item1, item2) : 0
         }
         const orderFunc  = confs['orderFunc'] || handleSort
-        return confs.order === ORDER_PROP_DESC ? orderFunc(v2, v1) : orderFunc(v1, v2)
+        return orderName(confs.order) === ORDER_PROP_DESC ? orderFunc(v2, v1) : orderFunc(v1, v2)
     }
+}
+
+function orderName(order){
+    if(order === "ascending"){
+        return "asc"
+    }
+    if(order === "descending"){
+        return "desc"
+    }
+    return "order"
 }
 
 function getSortConfs (arr, list, fieldConfs, context) {
@@ -108,6 +118,7 @@ function getSortConfs (arr, list, fieldConfs, context) {
                 field = handle.field
                 order = handle.order
             }
+            order = orderName(order)
             sortConfs.push({
                 field: field,
                 order: order || ORDER_PROP_ASC
