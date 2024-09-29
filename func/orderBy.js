@@ -94,14 +94,17 @@ function buildMultiOrders (name, confs, compares) {
     }
 }
 
-function orderName(order){
+function orderName(order,defaultOrder=ORDER_PROP_ASC){
     if(order === "ascending"){
         return "asc"
     }
     if(order === "descending"){
         return "desc"
     }
-    return "order"
+    if(!order){
+        return defaultOrder
+    }
+    return order
 }
 
 function getSortConfs (arr, list, fieldConfs, context) {
@@ -118,10 +121,9 @@ function getSortConfs (arr, list, fieldConfs, context) {
                 field = handle.field
                 order = handle.order
             }
-            order = orderName(order)
             sortConfs.push({
                 field: field,
-                order: order || ORDER_PROP_ASC
+                order: orderName(order,ORDER_PROP_ASC)
             })
             arrayEach(list, isFunction(field) ? function (item, key) {
                 item[index] = field.call(context, item.data, key, arr)
