@@ -73,13 +73,32 @@ const ORDER_PROP_DESC = 'desc'
 
 // '' < 数字 < 字符 < null < undefined
 function handleSort (v1, v2) {
+    // 处理 undefined：undefined 排在最后
     if (isUndefined(v1)) {
-        return 1
+        return isUndefined(v2) ? 0 : 1
     }
+    if (isUndefined(v2)) {
+        return -1
+    }
+    // 处理 null：null 排在 undefined 前面
     if (isNull(v1)) {
-        return isUndefined(v2) ? -1 : 1
+        return isNull(v2) ? 0 : 1
     }
-    return v1 && v1.localeCompare ? v1.localeCompare(v2) : (v1 > v2 ? 1 : -1)
+    if (isNull(v2)) {
+        return -1
+    }
+    // 处理 Symbol 类型，Symbol 无法直接比较
+    if (typeof v1 === 'symbol' || typeof v2 === 'symbol') {
+        const s1 = String(v1);
+        const s2 = String(v2);
+        return s1.localeCompare ? s1.localeCompare(s2) : (s1 > s2 ? 1 : -1);
+    }
+    // 处理字符串：使用 localeCompare（包括空字符串）
+    if (typeof v1 === 'string' && typeof v2 === 'string') {
+        return v1.localeCompare(v2);
+    }
+    // 其他类型：直接比较
+    return v1 > v2 ? 1 : -1
 }
 
 function buildMultiOrders (name, confs, compares) {
@@ -111,24 +130,37 @@ function getSortConfs (arr, list, fieldConfs, context) {
     const sortConfs = [];
     fieldConfs = isArray(fieldConfs) ? fieldConfs : [fieldConfs]
     arrayEach(fieldConfs, function (handle, index) {
-        if (handle) {
+        if (handle != null) {
             let field = handle;
             let order;
+            let hasOrderParam = false; // 标记是否有 order 参数
             if (isArray(handle)) {
                 field = handle[0]
                 order = handle[1]
+                hasOrderParam = true; // 数组格式有 order 参数
             } else if (isPlainObject(handle)) {
                 field = handle.field
                 order = handle.order
+                hasOrderParam = true; // 对象格式有 order 参数
             }
+            // 只有当有 order 参数且为 undefined 或空字符串时，才忽略这个排序字段
+            if (hasOrderParam && (isUndefined(order) || order === '')) {
+                return
+            }
+            // 如果 field 为 null 或 undefined，也应该忽略这个排序字段
+            if (isUndefined(field) || field === null) {
+                return
+            }
+            const sortIndex = sortConfs.length
             sortConfs.push({
                 field: field,
                 order: orderName(order,ORDER_PROP_ASC)
             })
             arrayEach(list, isFunction(field) ? function (item, key) {
-                item[index] = field.call(context, item.data, key, arr)
+                item[sortIndex] = field.call(context, item.data, key, arr)
             } : function (item) {
-                item[index] = field ? get(item.data, field) : item.data
+                // field 已经在上面的检查中排除了 null/undefined，所以这里可以直接使用
+                item[sortIndex] = get(item.data, field)
             })
         }
     })
@@ -153,6 +185,10 @@ function orderBy (arr, fieldConfs, context=undefined) {
             return {data: item}
         });
         const sortConfs = getSortConfs(arr, list, fieldConfs, context);
+        // 如果所有排序参数都是 undefined，按照没有传输排序参数处理
+        if (sortConfs.length === 0) {
+            return toArray(arr).sort(handleSort)
+        }
         let len = sortConfs.length - 1;
         while (len >= 0) {
             compares = buildMultiOrders(len, sortConfs[len], compares)
